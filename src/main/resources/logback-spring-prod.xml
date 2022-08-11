@@ -35,6 +35,19 @@
     </encoder>
   </appender>
 
+  <appender name="MDC" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_DIR}/mdc.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_DIR}/archive/mdc.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
+      <maxFileSize>1KB</maxFileSize>
+      <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>[MDC] %X{job}%n</pattern>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+    </encoder>
+  </appender>
+
   <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>${LOG_DIR}/error.log</file>
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -83,6 +96,7 @@ In fact, SizeAndTimeBasedRollingPolicy is implemented with a SizeAndTimeBasedFNA
   <root level="INFO">
     <appender-ref ref="REQUEST1" />
     <appender-ref ref="REQUEST2" />
+    <appender-ref ref="MDC" />
     <appender-ref ref="ERROR" />
   </root>
 
