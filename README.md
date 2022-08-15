@@ -20,7 +20,7 @@
   --> `logs` directory는 자동으로 생성된다.
   ```
 
-* [MDC를 사용해서 logback에 출력하려면 `%X{KEY}` 형식으로 사용하면 된다.](https://github.com/goodGid/Spring-Boot-2.7.3-Logback-Template/blob/main/src/main/resources/logback-spring-prod.xml#L38-L49)
+* [MDC를 사용해서 logback에 출력하려면 `%X{KEY}` 형식으로 사용하면 된다.](https://goodgid.github.io/Logback-How-to-use-values-in-MDC)
 
   ``` xml
   <encoder>
